@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Hello from './pages/Hello';
+import Props from './pages/Props';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,6 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Hello></Hello>
+    <Props msg='倪裕禄' age={12}></Props>
+    <Props msg='徐朝辉'></Props>
+
   </React.StrictMode>
 );
 
