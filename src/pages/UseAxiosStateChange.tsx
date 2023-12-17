@@ -3,12 +3,8 @@
 import axios from "axios"
 import { Student } from "../model/Student"
 import { useState } from "react"
+import { R } from "../model/R"
 
-interface R<T> {
-    code: number,
-    data: T, // 泛型
-    message?: string // 可选属性
-}
 // react 中想要函数再次被调用需要两个条件中的一个
 // 1、需要props发生改变
 // 2、需要state发生改变  函数之外的一组数据

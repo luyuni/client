@@ -2,12 +2,8 @@
 // https://www.axios-http.cn/docs/api_intro
 import axios from "axios"
 import { Student } from "../model/Student"
+import { R } from "../model/R"
 
-interface R<T> {
-    code: number,
-    data: T, // 泛型
-    message?: string // 可选属性
-}
 // react 中想要函数再次被调用需要两个条件中的一个
 // 1、需要props发生改变
 // 2、需要state发生改变

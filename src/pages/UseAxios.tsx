@@ -2,12 +2,7 @@
 // https://www.axios-http.cn/docs/api_intro
 import axios from "axios"
 import { Student } from "../model/Student"
-
-interface R<T> {
-    code: number,
-    data: T, // 泛型
-    message?: string // 可选属性
-}
+import { R } from "../model/R"
 
 export default function UseAxios({id} : {id: number})  {
     

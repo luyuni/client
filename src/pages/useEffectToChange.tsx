@@ -3,6 +3,7 @@
 import axios from "axios"
 import { Student } from "../model/Student"
 import { useState } from "react"
+import { R } from "../model/R"
 
 
 // react 中想要函数再次被调用需要两个条件中的一个
