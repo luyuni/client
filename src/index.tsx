@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Hello from './pages/Hello';
 import Props from './pages/Props';
 import UseAxios from './pages/UseAxios';
+import UseAxiosStateChange from './pages/UseAxiosStateChange';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,7 +21,7 @@ const root = ReactDOM.createRoot(
 // );
 
 root.render( // 注释严格模式就只请求一次
-  <UseAxios id={1}></UseAxios>
+  <UseAxiosStateChange id={1}/>
 )
 
 // If you want to start measuring performance in your app, pass a function
