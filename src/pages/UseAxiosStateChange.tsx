@@ -32,6 +32,7 @@ export default function UseAxiosStateChange({id} : {id: number})  {
      * b：方法，修改状态数据的
      */
     // state 改变的时候会调用函数，后端返回的时候调用setStudent改变状态数据
+    // 这个demo会无限循环触发 updateStudent
     let [student, setStudent] = useState<Student>({name: 'xx', age: 12})
     
     return <h3>{student.name}</h3>
