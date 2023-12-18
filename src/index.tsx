@@ -7,6 +7,7 @@ import Props from './pages/Props';
 import UseAxios from './pages/UseAxios';
 import UseAxiosStateChange from './pages/UseAxiosStateChange';
 import UseContextShow from './pages/useContextShow';
+import FormDemo from './pages/FormDemo';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,7 +23,7 @@ const root = ReactDOM.createRoot(
 // );
 
 root.render( // 注释严格模式就只请求一次
-  <UseContextShow />
+  <FormDemo />
 )
 
 // If you want to start measuring performance in your app, pass a function
