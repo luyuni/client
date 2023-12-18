@@ -2,12 +2,23 @@ import { useEffect, useState } from "react"
 import { Student } from "../model/Student"
 import axios from "axios"
 import { Table } from "antd"
-import { ColumnsType } from "antd/es/table"
+import { ColumnsType, TablePaginationConfig } from "antd/es/table"
 import { R } from "../model/R"
 
 export default function FormDemoAntd()  {
     const [students, setStudents] = useState<Student[]>([])
     const [loading, setLoading] = useState(true)
+    const [pagination, setPagination] = useState<TablePaginationConfig>(
+        {
+            current: 1,
+            pageSize: 2,
+            showSizeChanger: true
+        }
+    )
+
+    function onChange(newPagination: TablePaginationConfig) {
+        setPagination(newPagination)
+    }
   
     useEffect(() => {
       async function getStudents() {
@@ -50,6 +61,10 @@ export default function FormDemoAntd()  {
         columns={columns}
         dataSource={students}
         rowKey='id'
-        loading={loading}></Table>
+        loading={loading}
+        pagination={pagination}
+        onChange={onChange}>
+
+        </Table>
     )
 }
