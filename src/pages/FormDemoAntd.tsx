@@ -4,6 +4,7 @@ import axios from "axios"
 import { Table } from "antd"
 import { ColumnsType, TablePaginationConfig } from "antd/es/table"
 import { R } from "../model/R"
+import { PageResp } from "../model/PageResp"
 
 export default function FormDemoAntd()  {
     const [students, setStudents] = useState<Student[]>([])
@@ -11,8 +12,9 @@ export default function FormDemoAntd()  {
     const [pagination, setPagination] = useState<TablePaginationConfig>(
         {
             current: 1,
-            pageSize: 2,
-            showSizeChanger: true
+            pageSize: 3,
+            showSizeChanger: true,
+            pageSizeOptions: [5, 10, 15, 20]
         }
     )
 
@@ -22,15 +24,23 @@ export default function FormDemoAntd()  {
   
     useEffect(() => {
       async function getStudents() {
-        const resp = await axios.get<R<Student[]>>(
-          'http://localhost:8080/api/students'
+        const resp = await axios.get<R<PageResp<Student>>>(
+          'http://localhost:8080/api/students/q', {
+            params: {
+                page: pagination.current,
+                size: pagination.pageSize
+            }
+          }
         )
-        setStudents(resp.data.data)
+        setStudents(resp.data.data.list)
+        setPagination((old)=>{
+            return {...old, total: resp.data.data.total}
+        })
         setLoading(false)
       }
   
       getStudents()
-    }, [])
+    }, [pagination.current, pagination.pageSize])
   
     // title: 列标题  dataIndex: 要关联的属性名
     const columns: ColumnsType<Student> = [
