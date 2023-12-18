@@ -9,6 +9,10 @@ import UseAxiosStateChange from './pages/UseAxiosStateChange';
 import UseContextShow from './pages/useContextShow';
 import FormDemo from './pages/FormDemo';
 
+import { ConfigProvider } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
+import FormDemoAntd from './pages/FormDemoAntd';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -22,8 +26,14 @@ const root = ReactDOM.createRoot(
 //   </React.StrictMode>
 // );
 
-root.render( // 注释严格模式就只请求一次
-  <FormDemo />
+// root.render( // 注释严格模式就只请求一次
+//   <FormDemo />
+// )
+
+root.render(
+  <ConfigProvider locale={zhCN}>
+    <FormDemoAntd></FormDemoAntd>
+  </ConfigProvider>
 )
 
 // If you want to start measuring performance in your app, pass a function
